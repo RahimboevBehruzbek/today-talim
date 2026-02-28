@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Today Ta'lim</title>
+<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<body class="bg-gray-50">
+
+
+
+
+<!-- LOADER -->
+<div id="loader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
+  <div class="loader-circle"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+
+    <!-- LOGO -->
+    <a href="#home" class="flex items-center gap-2">
+      <img src="images/logo.jpg" class="w-8">
+      <h1 class="font-bold text-sm md:text-base">Today Ta'lim</h1>
+    </a>
+
+    <!-- DESKTOP MENU -->
+    <ul class="hidden md:flex gap-8 text-gray-600 font-medium">
+      <li><a href="#home" class="hover:text-green-500">Bosh sahifa</a></li>
+      <li><a href="#courses" class="hover:text-green-500">Kurslar</a></li>
+      <li><a href="#about" class="hover:text-green-500">Biz haqimizda</a></li>
+      <li><a href="#results" class="hover:text-green-500">Natijalar</a></li>
+      <li><a href="#contact" class="hover:text-green-500">Bog‘lanish</a></li>
+    </ul>
+
+    <!-- BUTTON -->
+    <a href="#contact" class="hidden md:block bg-green-500 text-white px-5 py-2 rounded-xl glow">
+      Ro‘yxatdan o‘tish
+    </a>
+
+    <!-- BURGER BUTTON -->
+    <button id="menu-btn" class="md:hidden flex flex-col gap-1 relative z-50">
+      <span class="line line1 w-6 h-0.5 bg-black"></span>
+      <span class="line line2 w-6 h-0.5 bg-black"></span>
+      <span class="line line3 w-6 h-0.5 bg-black"></span>
+    </button>
+
+  </div>
+</nav>
+
+<!-- OVERLAY -->
+<div id="overlay" class="fixed inset-0 hidden z-40"></div>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu" class="fixed top-0 right-[-100%] w-72 h-full bg-white shadow-2xl p-6 z-50">
+ 
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-lg font-bold">Menu</h2>
+    <button id="close-btn" class="text-3xl text-black relative z-[60]">✕</button>
+  </div>
+
+  <ul class="flex flex-col gap-6 text-gray-700 font-medium">
+    <li><a href="#home">Bosh sahifa</a></li>
+    <li><a href="#courses">Kurslar</a></li>
+    <li><a href="#about">Biz haqimizda</a></li>
+    <li><a href="#results">Natijalar</a></li>
+    <li><a href="#contact">Bog‘lanish</a></li>
+  </ul>
+
+  <a href="#contact" class="block mt-8 bg-green-500 text-white py-3 text-center rounded-xl glow">
+    Ro‘yxatdan o‘tish
+  </a>
+
+</div>
+
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center bg-gradient-to-r from-green-50 to-white">
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+
+    <!-- TEXT -->
+    <div class="hero-text text-center md:text-left order-2 md:order-1">
+
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 leading-tight">
+        2 oyda <span class="text-green-500">IELTS 7+</span> ga chiqing
+      </h1>
+
+      <p class="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-base md:text-lg max-w-xl mx-auto md:mx-0">
+        Tajribali o‘qituvchilar bilan tez va samarali natija.
+        Today Ta’lim markazi sizni muvaffaqiyat sari yetaklaydi.
+      </p>
+
+      <!-- BUTTONS -->
+      <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+
+        <a href="#contact" class="btn-main text-center w-full sm:w-auto">
+          Ro‘yxatdan o‘tish
+        </a>
+
+        <a href="https://t.me/yourusername" target="_blank" class="btn-outline text-center w-full sm:w-auto">
+          Telegram orqali yozish
+        </a>
+
+      </div>
+
+      <!-- STATS -->
+      <div class="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10 text-center md:text-left">
+
+        <div>
+          <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 counter" data-target="1000">0</h3>
+          <p class="text-gray-500 text-xs sm:text-sm">O‘quvchilar</p>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 counter" data-target="90">0</h3>
+          <p class="text-gray-500 text-xs sm:text-sm">Natija</p>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 counter" data-target="7">0</h3>
+          <p class="text-gray-500 text-xs sm:text-sm">IELTS</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- IMAGE -->
+    <div class="relative hero-img order-1 md:order-2">
+
+      <img src="images/about.jpg" class="w-full h-auto max-h-[350px] sm:max-h-[400px] md:max-h-[500px] object-cover rounded-xl shadow-lg">
+
+      <!-- GLOW -->
+      <div class="glow"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="py-16 sm:py-20 bg-white">
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
+
+    <!-- IMAGE -->
+    <div class="about-img hidden-left relative">
+
+      <img src="images/about.jpg" 
+           class="w-full h-auto max-h-[350px] sm:max-h-[400px] md:max-h-[500px] object-cover rounded-2xl shadow-xl">
+
+      <!-- DECOR -->
+      <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-green-100 rounded-xl -z-10"></div>
+
+    </div>
+
+    <!-- TEXT -->
+    <div class="about-text hidden-right text-center md:text-left">
+
+      <!-- TITLE -->
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+        Biz haqimizda
+      </h2>
+
+      <!-- DESCRIPTION -->
+      <p class="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+        Today Ta’lim markazi 
+        <span class="text-green-500 font-semibold">2019-yildan</span> buyon faoliyat yuritib,
+        o‘quvchilarga sifatli va natijaga yo‘naltirilgan ta’lim berib kelmoqda.
+      </p>
+
+      <p class="mt-3 text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+        Markazimizda ingliz tili, matematika, kimyo, IT va Prezident maktablariga 
+        tayyorlov kurslari mavjud bo‘lib, har bir o‘quvchiga individual yondashuv asosida darslar olib boriladi.
+      </p>
+
+      <p class="mt-3 text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+        Bizning asosiy maqsadimiz — o‘quvchilarni qisqa muddat ichida 
+        yuqori natijalarga olib chiqish va ularning kelajagini mustahkam 
+        poydevor bilan ta’minlashdir.
+      </p>
+
+      <!-- FEATURES -->
+      <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-4 max-w-md mx-auto md:mx-0">
+
+        <div class="flex items-center gap-2 text-gray-700 text-sm sm:text-base">
+          <span class="text-green-500">✔</span> 2019-yildan
+        </div>
+
+        <div class="flex items-center gap-2 text-gray-700 text-sm sm:text-base">
+          <span class="text-green-500">✔</span> 1000+ o‘quvchi
+        </div>
+
+        <div class="flex items-center gap-2 text-gray-700 text-sm sm:text-base">
+          <span class="text-green-500">✔</span> Tajribali ustozlar
+        </div>
+
+        <div class="flex items-center gap-2 text-gray-700 text-sm sm:text-base">
+          <span class="text-green-500">✔</span> 90% natija
+        </div>
+
+      </div>
+
+      <!-- BUTTON -->
+      <div class="mt-6 flex justify-center md:justify-start">
+        <a href="#contact" class="btn-main w-full sm:w-auto text-center">
+          Ro‘yxatdan o‘tish
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COURSES SECTION -->
+<section id="courses" class="py-16 sm:py-20 bg-gray-50">
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <!-- TITLE -->
+    <div class="text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
+        Bizning kurslarimiz
+      </h2>
+      <p class="mt-3 text-gray-500 text-sm sm:text-base">
+        O‘z kelajagingizni bugundan boshlang
+      </p>
+    </div>
+
+    <!-- SWIPER -->
+    <div class="swiper mySwiper mt-10">
+
+      <div class="swiper-wrapper">
+
+        <!-- CARD 1 -->
+        <div class="swiper-slide">
+          <div class="course-card">
+
+            <img src="images/ee0e00de-fccc-4d70-b04b-7fa15fac16cd.png" class="rounded-xl mb-5 w-full h-48 object-cover">
+
+            <h3 class="text-lg sm:text-xl font-bold text-gray-800">IELTS</h3>
+            <p class="text-gray-500 mt-2 text-sm">Intensiv tayyorlov kursi</p>
+
+            <ul class="mt-4 space-y-2 text-gray-600 text-sm">
+              <li>✔ 2-3 oy davomiylik</li>
+              <li>✔ 7+ natija</li>
+            </ul>
+
+            <a href="#contact" class="btn-main mt-6 w-full block text-center">
+              Ro‘yxatdan o‘tish
+            </a>
+
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="swiper-slide">
+          <div class="course-card">
+
+            <img src="images/6032731f-09d1-4607-b35e-fda776e8b208.png" class="rounded-xl mb-5 w-full h-48 object-cover">
+
+            <h3 class="text-lg sm:text-xl font-bold text-gray-800">IT</h3>
+            <p class="text-gray-500 mt-2 text-sm">Frontend & Dasturlash</p>
+
+            <ul class="mt-4 space-y-2 text-gray-600 text-sm">
+              <li>✔ 4 oy davomiylik</li>
+              <li>✔ IT mutaxassis</li>
+            </ul>
+
+            <a href="#contact" class="btn-main mt-6 w-full block text-center">
+              Ro‘yxatdan o‘tish
+            </a>
+
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="swiper-slide">
+          <div class="course-card">
+
+            <img src="images/3f627634-fdfb-49ff-afa7-b7b4a166b1a5.png" class="rounded-xl mb-5 w-full h-48 object-cover">
+
+            <h3 class="text-lg sm:text-xl font-bold text-gray-800">Matematika</h3>
+            <p class="text-gray-500 mt-2 text-sm">Olimpiada tayyorlov</p>
+
+            <ul class="mt-4 space-y-2 text-gray-600 text-sm">
+              <li>✔ 3 oy davomiylik</li>
+              <li>✔ Yuqori natija</li>
+            </ul>
+
+            <a href="#contact" class="btn-main mt-6 w-full block text-center">
+              Ro‘yxatdan o‘tish
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="swiper-pagination mt-6"></div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- RESULTS SECTION -->
+<section id="results" class="py-16 sm:py-20 bg-green-50">
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+
+    <!-- TITLE -->
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
+      O‘quvchilarimiz natijalari
+    </h2>
+
+    <p class="mt-3 text-gray-500 text-sm sm:text-base">
+      Biz bilan o‘qigan o‘quvchilar yuqori natijalarga erishmoqda
+    </p>
+
+   <!-- STATS -->
+<div class="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-10">
+
+  <div class="stat-card text-center p-3 sm:p-4">
+    <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 counter" data-target="1000">0</h3>
+    <p class="text-xs sm:text-sm text-gray-500 mt-1">O‘quvchilar</p>
+  </div>
+
+  <div class="stat-card text-center p-3 sm:p-4">
+    <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 counter" data-target="90">0</h3>
+    <p class="text-xs sm:text-sm text-gray-500 mt-1">Yuqori natija</p>
+  </div>
+
+  <div class="stat-card text-center p-3 sm:p-4">
+    <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-green-500 counter" data-target="7">0</h3>
+    <p class="text-xs sm:text-sm text-gray-500 mt-1">IELTS</p>
+  </div>
+
+</div>
+
+    <!-- SWIPER RESULTS -->
+    <div class="swiper resultsSwiper mt-10 sm:mt-12">
+
+      <div class="swiper-wrapper">
+
+        <!-- CARD 1 -->
+        <div class="swiper-slide">
+          <div class="result-card">
+
+            <img src="images/iel1.jpg" 
+                 class="w-full h-64 object-cover rounded-xl shadow">
+
+            <p class="mt-3 font-semibold text-gray-800">IELTS 7.0</p>
+
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="swiper-slide">
+          <div class="result-card">
+
+            <img src="images/iel2.jpg" 
+                 class="w-full h-64 object-cover rounded-xl shadow">
+
+            <p class="mt-3 font-semibold text-gray-800">IELTS 7.5</p>
+
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="swiper-slide">
+          <div class="result-card">
+
+            <img src="images/iel3.jpg" 
+                 class="w-full h-64 object-cover rounded-xl shadow">
+
+            <p class="mt-3 font-semibold text-gray-800">IELTS 8.0</p>
+
+          </div>
+        </div>
+
+        <!-- qo‘shimcha card qo‘shishingiz mumkin -->
+        
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="swiper-pagination mt-6"></div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <a href="#contact" class="btn-main mt-10 inline-block">
+      Ro‘yxatdan o‘tish
+    </a>
+
+  </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonial" class="py-16 sm:py-20 bg-white">
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+
+    <!-- TITLE -->
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
+      O‘quvchilar fikrlari
+    </h2>
+
+    <p class="mt-3 text-gray-500 text-sm sm:text-base">
+      Biz bilan o‘qigan o‘quvchilar natijalari haqida
+    </p>
+
+    <!-- SWIPER -->
+    <div class="swiper testimonialSwiper mt-10 sm:mt-12">
+
+      <div class="swiper-wrapper">
+
+        <!-- CARD 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <img src="images/vatar.jpg" class="avatar mx-auto">
+
+            <h3 class="mt-4 font-bold text-base sm:text-lg">Ali Xasanov</h3>
+            <p class="text-green-500 text-sm">IELTS 7.5</p>
+
+            <p class="mt-3 text-gray-500 text-sm">
+              2 oy ichida 7.5 oldim. Ustozlar juda kuchli va tushunarli o‘qitadi.
+            </p>
+            <div class="flex justify-center text-yellow-400 mt-2 text-sm">
+  ★★★★★
+</div>
+
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <img src="images/vatar.jpg" class="avatar mx-auto">
+
+            <h3 class="mt-4 font-bold text-base sm:text-lg">Dilnoza Karimova</h3>
+            <p class="text-green-500 text-sm">IELTS 7.0</p>
+
+            <p class="mt-3 text-gray-500 text-sm">
+              Oldin 5.5 edi, hozir 7.0 bo‘ldi. Natija bor!
+            </p>
+            <div class="flex justify-center text-yellow-400 mt-2 text-sm">
+  ★★★★★
+</div>
+
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <img src="images/vatar.jpg" class="avatar mx-auto">
+
+            <h3 class="mt-4 font-bold text-base sm:text-lg">Bekzod Rahimov</h3>
+            <p class="text-green-500 text-sm">IELTS 8.0</p>
+
+            <p class="mt-3 text-gray-500 text-sm">
+              Eng yaxshi markaz! 8.0 olishimga katta yordam berdi.
+            </p>
+            <div class="flex justify-center text-yellow-400 mt-2 text-sm">
+  ★★★★★
+</div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="swiper-pagination mt-6"></div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <a href="#contact" class="btn-main mt-10 inline-block">
+      Ro‘yxatdan o‘tish
+    </a>
+
+  </div>
+
+</section>
+
+<!-- FORM SECTION -->
+<section id="form-section" class="py-20 bg-gray-100">
+
+  <div class="max-w-xl mx-auto px-6 text-center">
+
+    <h2 class="text-3xl font-bold text-gray-800">
+      Ro‘yxatdan o‘tish
+    </h2>
+
+    <p class="mt-2 text-gray-500">
+      Bepul dars uchun hoziroq yoziling
+    </p>
+
+    <!-- FORM -->
+    <form id="form" class="mt-8 space-y-4">
+
+      <input id="name" type="text" placeholder="Ismingiz" required class="input">
+      <input id="phone" type="text" placeholder="Telefon raqam" required class="input">
+
+      <select id="course" class="input">
+        <option>IELTS</option>
+        <option>IT</option>
+        <option>Matematika</option>
+      </select>
+
+      <button type="submit" class="btn-main w-full">
+        Yuborish
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT INFO -->
+<section id="contact" class="py-20 bg-white">
+
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center">
+      <h2 class="text-4xl font-bold text-gray-800">
+        Bog‘lanish
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 mt-12">
+
+      <!-- INFO -->
+      <div class="space-y-6">
+
+        <div class="info-card">
+          <h3>📞 Telefon</h3>
+          <p>+998 90 123 45 67</p>
+        </div>
+
+        <div class="info-card">
+          <h3>📍 Manzil</h3>
+          <p>Urganch shahri</p>
+        </div>
+
+        <div class="info-card">
+          <h3>💬 Telegram</h3>
+          <a href="https://t.me/today_talim_center_bot" class="text-green-500">
+            @today_talim_center_bot
+          </a>
+        </div>
+
+      </div>
+
+      <!-- MAP -->
+      <div class="rounded-2xl overflow-hidden shadow">
+        <iframe 
+          src="https://www.google.com/maps?q=Urganch&output=embed"
+          width="100%" 
+          height="350" 
+          style="border:0;"
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+<script src="js/script.js"></script>
+</body>
+</head>
+</html>
